@@ -1,0 +1,7 @@
+# Core service: retrieval (BM25 + dense search over precomputed embeddings), API, logging.
+# Runs on any CPU box. No torch needed.
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.5
+numpy>=1.24
+rank_bm25>=0.2.2

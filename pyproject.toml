@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pubmed-rag"
+version = "0.1.0"
+description = "Evidence-grounded yes/no/maybe answers over PubMed abstracts: hybrid retrieval, a local open LLM, and a calibrated decision head."
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "pydantic>=2.5",
+    "numpy>=1.24",
+    "rank_bm25>=0.2.2",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]  # long lines are fine; the formatter is not enforced

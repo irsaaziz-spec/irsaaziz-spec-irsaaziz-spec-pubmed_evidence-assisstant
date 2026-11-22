@@ -1,0 +1,8 @@
+# Needed to (a) build the index, (b) embed queries for dense search, (c) run the local LLM.
+# Install a CUDA build of torch for your platform first if you have a GPU (Colab already has one).
+datasets
+sentence-transformers
+transformers
+accelerate
+bitsandbytes  # optional: only for 4-bit loading
+scikit-learn  # only for fitting the calibrator
