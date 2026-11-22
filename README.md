@@ -49,16 +49,6 @@ Paired comparisons on the same questions (95% CI excludes 0): chunk-RAG over clo
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  UI[Gradio demo] -->|POST /ask| API[FastAPI]
-  API --> R[Retriever: dense / BM25 / hybrid]
-  R --> C[(index: abstracts + embeddings)]
-  API --> L[Local LLM: P(yes/no/maybe) in one forward pass]
-  L --> K[Calibrated decision head: logistic regression]
-  K --> API
-  API --> T[Telemetry: request log, rolling p50/p95, feedback]
-```
 
 * `GET /health`, `POST /ask`, `POST /feedback`, `GET /stats`; interactive docs at `/docs`.
 * **Swappable backend:** `PMRAG_BACKEND=local` (open LLM on the machine) or `none` (retrieval-only: returns the cited abstracts, runs on any CPU, no torch).
